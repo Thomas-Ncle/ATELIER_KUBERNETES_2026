@@ -2,31 +2,31 @@
 
 > Complétez ce fichier au fil de l'atelier, puis faites un commit et un push (voir la section « Rendu » du README).
 
-**Nom / Prénom :**
-**Groupe :**
+**Nom / Prénom : NICOLLE / Thomas**
+**Groupe : ING3 APP-RS2**
 
 ---
 
 ## Exercice 1 — Cluster
 
 1. Combien de nœuds affiche `kubectl get nodes` ? Quel est le rôle de chacun ?
-   >
+   > Il affiche 3 nodes, le controlplane(server) et deux workers (agent0 et 1). Le controlplane sera le gestionnaire des pods et les workers permettront d'accueillir les pods.
 2. Que montre `docker ps` ? Qu'est-ce qu'un « nœud » dans k3d, concrètement ?
-   >
+   > Docker ps montre un container en plus, le loadbalancer. Un noeud c'est une machine avec un des deux rôles (controleppane ou worker).
 
 ## Exercice 2 — Premier déploiement
 
 3. Quels objets Kubernetes ont été créés par `kubectl create deployment` ? (indice : `kubectl get all`)
-   >
+   > 3 objets ont été créés : un pod, un service, un deployment et un replicatset.
 4. Vous avez supprimé le pod `web-...` : que s'est-il passé, et pourquoi ?
-   >
+   > Un nouveau pod c'est créé, car le replicatset est set à 1.
 
 ## Exercice 3 — Modifier un conteneur en direct
 
 5. Après suppression du pod, votre message « Bienvenue... » a-t-il survécu ? Pourquoi ?
-   >
+   > Non, car le container est recréé avec l'image ngix de base.
 6. Pourquoi le `port-forward` a-t-il cessé de fonctionner après la suppression du pod ?
-   >
+   > Le port-forward ne s'attache qu'a 1 seul pod.
 
 ## Exercice 4 — Déclaratif
 
