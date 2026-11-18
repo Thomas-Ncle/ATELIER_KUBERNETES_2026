@@ -45,14 +45,14 @@ site-75775484b-mrdqz   1/1     Running   0          7m10s   10.42.1.6   k3d-lab-
 site-75775484b-nqtgh   1/1     Running   0          7m9s    10.42.2.6   k3d-lab-server-0   <none>           <none>
 ```  
 10. Avec l'image `nginx:9.99`, quel statut avait le pod ? Quelle commande vous a donné la cause ?
-    >
+    > ImagePullBackOff avec `kubectl get pods`.
 11. Pendant la panne, le site restait-il accessible ? Pourquoi ?
-    >
+    > Non, car le pod qui a reçu la màj était pointé par le selector du service.
 
 ## Exercice 6 — Portainer & Mario
 
 12. URL publique de votre Mario :
-    >
+    > https://psychic-winner-p5w6rx45w74f7j7x-8585.app.github.dev/
 13. Retrouvez le Deployment `mario` en ligne de commande. Portainer et `kubectl` parlent-ils au même composant ? Lequel ?
     >
 
