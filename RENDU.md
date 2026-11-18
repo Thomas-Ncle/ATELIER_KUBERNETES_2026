@@ -31,16 +31,19 @@
 ## Exercice 4 — Déclaratif
 
 7. Quelle différence entre `kubectl create` et `kubectl apply` ?
-   >
+   > kubectl apply permet d'appliquer une configuration à une ressource, alors que create va créer la ressource.
 8. À quoi sert le `selector` d'un Service ? Que se passe-t-il s'il ne correspond à aucun pod ?
-   >
+   > Le selector d’un Service indique quels Pods il cible, en faisant correspondre leurs labels. Par exemple, selector: app: web sélectionne les Pods portant le label app=web. Kubernetes utilise ces Pods comme points de terminaison du Service et répartit le trafic entre eux. Le Service et les Pods doivent être dans le même namespace. S’il ne correspond à aucun Pod, le Service existe toujours, mais il n’a aucun endpoint vers lequel acheminer le trafic : les connexions au Service ne peuvent donc pas atteindre d’application.
 
 ## Exercice 5 — Scaling & mises à jour
 
 9. Sur quels nœuds se trouvent vos 3 réplicas ? Collez la sortie de `kubectl get pods -l app=site -o wide`.
-   ```
-
-   ```
+```  
+NAME                   READY   STATUS    RESTARTS   AGE     IP          NODE               NOMINATED NODE   READINESS GATES
+site-75775484b-bjrmb   1/1     Running   0          7m9s    10.42.0.9   k3d-lab-agent-0    <none>           <none>
+site-75775484b-mrdqz   1/1     Running   0          7m10s   10.42.1.6   k3d-lab-agent-1    <none>           <none>
+site-75775484b-nqtgh   1/1     Running   0          7m9s    10.42.2.6   k3d-lab-server-0   <none>           <none>
+```  
 10. Avec l'image `nginx:9.99`, quel statut avait le pod ? Quelle commande vous a donné la cause ?
     >
 11. Pendant la panne, le site restait-il accessible ? Pourquoi ?

@@ -9,7 +9,10 @@ data:
   index.html: |
     <!doctype html>
     <html lang="fr">
-      <head><meta charset="utf-8"><title>Mon site sur Kubernetes</title></head>
+      <head>
+        <meta charset="utf-8">
+        <title>Mon site sur Kubernetes</title>
+      </head>
       <body>
         <h1>Bienvenue sur le site de Thomas Nicolle</h1>
         <p>Atelier Kubernetes 2026 · ING2 Réseau &amp; Sécurité</p>
